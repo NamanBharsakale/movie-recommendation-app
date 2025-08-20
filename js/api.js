@@ -1,17 +1,11 @@
-const API_KEY = "7ae0813f"; // replace with your OMDb key
-
 async function fetchMovies(query) {
-  const response = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
+  const response = await fetch(`/api/movies?q=${query}`);
   const data = await response.json();
-  if (data.Response === "True") {
-    return data.Search;
-  } else {
-    return [];
-  }
+  return data.Search || [];
 }
 
 async function fetchMovieDetails(imdbID) {
-  const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`);
+  const response = await fetch(`/api/movieDetails?id=${imdbID}`);
   const data = await response.json();
-  return data; // contains Genre, Year, Plot, etc.
+  return data;
 }
