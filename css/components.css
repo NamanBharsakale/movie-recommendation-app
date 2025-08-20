@@ -1,47 +1,105 @@
-
-button {
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 1rem;
-}
-
-button:hover {
-  background: #e84118;
-}
-
-#theme-toggle {
-  background: var(--secondary-color);
-}
-
-.search-bar {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.search-bar input {
-  flex: 1;
-  padding: 0.6rem;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  font-size: 1rem;
-  background: var(--card-bg);
-  color: var(--text-color);
-}
-
-.movie-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
+/* components.css */
+header {
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: rgba(0,0,0,0.5); /* semi-transparent for contrast */
+}
+
+#searchBar {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#searchBar:focus {
+  box-shadow: 0 6px 20px rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+#searchBar:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.4);
+}
+#filters {
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: inline-flex;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+/* filter-container */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  max-width: 800px;
+
+  background: rgba(255, 255, 255, 0.1); /* translucent background */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* glass effect */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Filter selects */
+.filter-container select {
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for selects */
+.filter-container select:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.05);
+}
+
+/* Focus effect */
+.filter-container select:focus {
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter-container select {
+    width: 80%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+.movie-card {
+  display: inline-block;
+  width: 180px;
+  margin: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  text-align: center;
 }
 
 .movie-card img {
@@ -50,77 +108,13 @@ button:hover {
   object-fit: cover;
 }
 
-.movie-card .info {
-  padding: 0.8rem;
-}
-
 .movie-card h3 {
+  margin: 0.5rem 0 0.2rem;
   font-size: 1rem;
-  margin-bottom: 0.4rem;
 }
 
 .movie-card p {
-  font-size: 0.9rem;
-  color: gray;
-}
-
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 100;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 600px;
-  width: 90%;
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links li {
-  display: inline;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--text-color);
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: color 0.3s, border-bottom 0.3s;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav-link:hover {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-}
-
-.nav-link.active {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
 }
