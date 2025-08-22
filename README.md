@@ -1,5 +1,7 @@
-# 🎬 Movie Recommendation App
+# 🎬 Movie Recommendation App 
 
+
+Deployment: [https://movie-recommendation-app-o34y.vercel.app/]
 A **Movie Recommendation Web App** built using **HTML, CSS, and JavaScript**, deployed on **Vercel** with secure API handling.  
 Users can **search movies**, **filter by genre, time period, and style**, and view detailed movie information from the **OMDb API** — without exposing the API key.
 
